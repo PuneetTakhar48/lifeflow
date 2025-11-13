@@ -24,7 +24,7 @@ FRONTEND_URL=https://your-frontend-url.netlify.app
 
 ### Step 1: Build Settings
 1. Go to [netlify.com](https://netlify.com)
-2. Drag & drop `frontend/build` folder OR connect GitHub
+2. Connect your GitHub repository
 3. Build settings:
    - **Base directory**: `frontend`
    - **Build command**: `npm run build`
@@ -35,6 +35,11 @@ Add in Netlify dashboard:
 ```
 REACT_APP_API_URL=https://your-backend-url.onrender.com/api/auth
 ```
+
+### Step 3: Fix Routing Issues
+- The `_redirects` file is already included to handle React Router
+- Alternatively, use `netlify.toml` for configuration
+- This prevents "Page Not Found" errors on direct URL access
 
 ## Testing Checklist
 - [ ] Backend health check: `GET https://your-backend.onrender.com/`

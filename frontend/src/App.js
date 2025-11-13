@@ -4,6 +4,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Navbar from './Navbar';
+import HomePage from './HomePage';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,18 +20,19 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userData');
     setIsAuthenticated(false);
   };
 
   return (
     <Router>
-      <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh' }}>
+      <div style={{ fontFamily: 'Inter, sans-serif', minHeight: '100vh', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
         
         <Routes>
           <Route 
             path="/" 
-            element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} 
+            element={isAuthenticated ? <Dashboard /> : <HomePage />} 
           />
           <Route 
             path="/login" 

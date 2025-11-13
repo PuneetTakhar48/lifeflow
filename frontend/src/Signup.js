@@ -22,7 +22,7 @@ function Signup() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post(process.env.REACT_APP_API_URL || 'http://localhost:5000/api/auth/signup', formData);
+      const response = await axios.post(process.env.REACT_APP_API_URL || 'http://localhost:5001/api/auth/signup', formData);
       setMessage(response.data.message);
       setFormData({ name: '', email: '', password: '' });
     } catch (error) {
@@ -33,23 +33,26 @@ function Signup() {
 
   return (
     <div style={{ 
-      minHeight: '80vh', 
+      minHeight: '90vh', 
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
-      backgroundColor: '#f8f9fa'
+      background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
     }}>
       <div style={{
-        backgroundColor: 'white',
-        padding: '40px',
-        borderRadius: '10px',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        background: 'rgba(255,255,255,0.95)',
+        padding: '48px',
+        borderRadius: '24px',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.2)',
         width: '100%',
-        maxWidth: '400px'
+        maxWidth: '420px'
       }}>
         <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-          <h2 style={{ color: '#2c3e50', marginBottom: '10px' }}>Create Account</h2>
-          <p style={{ color: '#7f8c8d' }}>Join LifeFlow+ today</p>
+          <div style={{ fontSize: '48px', marginBottom: '15px' }}>🎆</div>
+          <h2 style={{ color: '#2c3e50', marginBottom: '12px', fontSize: '32px', fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>Join LifeFlow+</h2>
+          <p style={{ color: '#7f8c8d', fontSize: '16px' }}>Create your account and start your journey</p>
         </div>
         
         <form onSubmit={handleSubmit}>
